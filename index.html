@@ -276,6 +276,177 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/JavaScript中函数的变量提升/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangwendou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CreateZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/17/JavaScript中函数的变量提升/" itemprop="url">JavaScript中函数的变量提升</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T15:34:39+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先看一段代码，</p>
+<pre><code>var f = function () {
+ console.log(&apos;1&apos;);
+</code></pre><p>}</p>
+<p>function f() {<br>     console.log(‘2’);<br>}</p>
+<p>f(); // 1</p>
+<p>控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？</p>
+<p>这是一个讲变量提升的文章，那应该是变量提升在作祟。</p>
+<blockquote>
+<p>函数提升是把整个函数都提到前面去。<br>在我们写js code 的时候，我们有2中写法，一种是函数表达式，另外一种是函数声明方式。我们需要重点注意的是，只有函数声明形式才能被提升。</p>
+</blockquote>
+<p>看下面的代码演示：</p>
+<pre><code>// 函数声明方式提升【成功】
+</code></pre><p>function myTest(){<br>    foo();<br>    function foo(){<br>        console.log(“我来自 foo”);<br>    }<br>}<br>myTest(); // 我来自 foo</p>
+<pre><code>// 函数表达式方式提升【失败】
+</code></pre><p>function myTest(){<br>    foo();<br>    var foo =function foo(){<br>        console.log(“我来自 foo”);<br>    }<br>}<br>myTest(); // foo is not a function</p>
+<p>其实这篇文章是有问题的，看下面两段代码：</p>
+<pre><code>function myTest(){
+foo();
+</code></pre><p>}<br>myTest(); // foo is not defined</p>
+<pre><code>function myTest(){
+var foo;
+foo();
+</code></pre><p>}<br>myTest(); // foo is not a function</p>
+<p>注意两个报错信息的区别，is not a function和is not defined，is not a function事实上已经发生了变量提升！</p>
+<p>那么函数声明和函数表达式的变量提升有什么区别呢？<br>《JavaScript秘密花园》中的一个栗子很清楚明了：</p>
+<blockquote>
+<p>JavaScript 会提升变量声明。这意味着 var 表达式和 function 声明都将会被提升到当前作用域的顶部。</p>
+</blockquote>
+<pre><code>bar();
+</code></pre><p>var bar = function() {};<br>var someValue = 42;</p>
+<p>test();<br>function test(data) {<br>    if (false) {<br>        goo = 1;</p>
+<pre><code>} else {
+    var goo = 2;
+}
+for(var i = 0; i &lt; 100; i++) {
+    var e = data[i];
+}
+</code></pre><p>}</p>
+<blockquote>
+<p>上面代码在运行之前将会被转化。JavaScript 将会把 var 表达式和 function 声明提升到当前作用域的顶部。</p>
+</blockquote>
+<pre><code>// var 表达式被移动到这里
+</code></pre><p>var bar, someValue; // 缺省值是 ‘undefined’</p>
+<p>// 函数声明也会提升<br>function test(data) {<br>    var goo, i, e; // 没有块级作用域，这些变量被移动到函数顶部<br>    if (false) {<br>        goo = 1;</p>
+<pre><code>} else {
+    goo = 2;
+}
+for(i = 0; i &lt; 100; i++) {
+    e = data[i];
+}
+</code></pre><p>}</p>
+<p>bar(); // 出错：TypeError，因为 bar 依然是 ‘undefined’<br>someValue = 42; // 赋值语句不会被提升规则（hoisting）影响<br>bar = function() {};</p>
+<p>test();</p>
+<p>那么一开始的栗子其实是和下面的代码等效的：</p>
+<pre><code>var f;
+</code></pre><p>function f() {<br>     console.log(‘2’);<br>}</p>
+<p>f = function () {<br>     console.log(‘1’);<br>}</p>
+<p>f(); // 1</p>
+<p>一切也就不难理解了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/markdown语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -583,7 +754,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +776,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

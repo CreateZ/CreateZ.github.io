@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -93,15 +93,17 @@
 
 
 
-<meta name="description" content="只有亲自动手实现一遍，才是我掌握了">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CreateZ">
-<meta property="og:url" content="http://yoursite.com/tags/日常/index.html">
+<meta name="description" content="先看一段代码， var f = function () {  console.log(&amp;apos;1&amp;apos;); } function f() {     console.log(‘2’);} f(); // 1 控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？ 这是一个讲变量提升的文章，那应该是变量提升在作祟。  函数提升是把整个函数都提到">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中函数的变量提升">
+<meta property="og:url" content="http://yoursite.com/2017/07/17/JavaScript中函数的变量提升/index.html">
 <meta property="og:site_name" content="CreateZ">
-<meta property="og:description" content="只有亲自动手实现一遍，才是我掌握了">
+<meta property="og:description" content="先看一段代码， var f = function () {  console.log(&amp;apos;1&amp;apos;); } function f() {     console.log(‘2’);} f(); // 1 控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？ 这是一个讲变量提升的文章，那应该是变量提升在作祟。  函数提升是把整个函数都提到">
+<meta property="og:updated_time" content="2017-07-17T07:45:04.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CreateZ">
-<meta name="twitter:description" content="只有亲自动手实现一遍，才是我掌握了">
+<meta name="twitter:title" content="JavaScript中函数的变量提升">
+<meta name="twitter:description" content="先看一段代码， var f = function () {  console.log(&amp;apos;1&amp;apos;); } function f() {     console.log(‘2’);} f(); // 1 控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？ 这是一个讲变量提升的文章，那应该是变量提升在作祟。  函数提升是把整个函数都提到">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/日常/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/17/JavaScript中函数的变量提升/"/>
 
 
 
 
 
-  <title>标签: 日常 | CreateZ</title>
+  <title>JavaScript中函数的变量提升 | CreateZ</title>
   
 
 
@@ -160,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,44 +266,207 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>日常<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/JavaScript中函数的变量提升/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangwendou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CreateZ">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript中函数的变量提升</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T15:34:39+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>先看一段代码，</p>
+<pre><code>var f = function () {
+ console.log(&apos;1&apos;);
+</code></pre><p>}</p>
+<p>function f() {<br>     console.log(‘2’);<br>}</p>
+<p>f(); // 1</p>
+<p>控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？</p>
+<p>这是一个讲变量提升的文章，那应该是变量提升在作祟。</p>
+<blockquote>
+<p>函数提升是把整个函数都提到前面去。<br>在我们写js code 的时候，我们有2中写法，一种是函数表达式，另外一种是函数声明方式。我们需要重点注意的是，只有函数声明形式才能被提升。</p>
+</blockquote>
+<p>看下面的代码演示：</p>
+<pre><code>// 函数声明方式提升【成功】
+</code></pre><p>function myTest(){<br>    foo();<br>    function foo(){<br>        console.log(“我来自 foo”);<br>    }<br>}<br>myTest(); // 我来自 foo</p>
+<pre><code>// 函数表达式方式提升【失败】
+</code></pre><p>function myTest(){<br>    foo();<br>    var foo =function foo(){<br>        console.log(“我来自 foo”);<br>    }<br>}<br>myTest(); // foo is not a function</p>
+<p>其实这篇文章是有问题的，看下面两段代码：</p>
+<pre><code>function myTest(){
+foo();
+</code></pre><p>}<br>myTest(); // foo is not defined</p>
+<pre><code>function myTest(){
+var foo;
+foo();
+</code></pre><p>}<br>myTest(); // foo is not a function</p>
+<p>注意两个报错信息的区别，is not a function和is not defined，is not a function事实上已经发生了变量提升！</p>
+<p>那么函数声明和函数表达式的变量提升有什么区别呢？<br>《JavaScript秘密花园》中的一个栗子很清楚明了：</p>
+<blockquote>
+<p>JavaScript 会提升变量声明。这意味着 var 表达式和 function 声明都将会被提升到当前作用域的顶部。</p>
+</blockquote>
+<pre><code>bar();
+</code></pre><p>var bar = function() {};<br>var someValue = 42;</p>
+<p>test();<br>function test(data) {<br>    if (false) {<br>        goo = 1;</p>
+<pre><code>} else {
+    var goo = 2;
+}
+for(var i = 0; i &lt; 100; i++) {
+    var e = data[i];
+}
+</code></pre><p>}</p>
+<blockquote>
+<p>上面代码在运行之前将会被转化。JavaScript 将会把 var 表达式和 function 声明提升到当前作用域的顶部。</p>
+</blockquote>
+<pre><code>// var 表达式被移动到这里
+</code></pre><p>var bar, someValue; // 缺省值是 ‘undefined’</p>
+<p>// 函数声明也会提升<br>function test(data) {<br>    var goo, i, e; // 没有块级作用域，这些变量被移动到函数顶部<br>    if (false) {<br>        goo = 1;</p>
+<pre><code>} else {
+    goo = 2;
+}
+for(i = 0; i &lt; 100; i++) {
+    e = data[i];
+}
+</code></pre><p>}</p>
+<p>bar(); // 出错：TypeError，因为 bar 依然是 ‘undefined’<br>someValue = 42; // 赋值语句不会被提升规则（hoisting）影响<br>bar = function() {};</p>
+<p>test();</p>
+<p>那么一开始的栗子其实是和下面的代码等效的：</p>
+<pre><code>var f;
+</code></pre><p>function f() {<br>     console.log(‘2’);<br>}</p>
+<p>f = function () {<br>     console.log(‘1’);<br>}</p>
+<p>f(); // 1</p>
+<p>一切也就不难理解了。</p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/07/17/markdown语法/" itemprop="url">
-              
-                <span itemprop="name">markdown语法</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-17T15:19:28+08:00"
-              content="2017-07-17" >
-          07-17
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/17/markdown语法/" rel="next" title="markdown语法">
+                <i class="fa fa-chevron-left"></i> markdown语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +474,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -546,10 +715,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
