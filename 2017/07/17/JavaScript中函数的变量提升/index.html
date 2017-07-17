@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/17/JavaScript中函数的变量提升/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="先看一段代码， 123456789var f = function () &amp;#123;     console.log(&apos;1&apos;);&amp;#125;function f() &amp;#123;     console.log(&apos;2&apos;);&amp;#125;f(); // 1 控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？ 这是一个讲变量提升的文章，那应该是变量提升">
-<meta property="og:updated_time" content="2017-07-17T09:40:45.489Z">
+<meta property="og:updated_time" content="2017-07-17T09:42:40.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中函数的变量提升">
 <meta name="twitter:description" content="先看一段代码， 123456789var f = function () &amp;#123;     console.log(&apos;1&apos;);&amp;#125;function f() &amp;#123;     console.log(&apos;2&apos;);&amp;#125;f(); // 1 控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？ 这是一个讲变量提升的文章，那应该是变量提升">
@@ -373,9 +373,7 @@
 <p>控制台输出的是1，按照道理JS没有重载，下一个函数应该会覆盖上一个同名函数，但是为什么输出的是1呢？</p>
 <p>这是一个讲变量提升的文章，那应该是变量提升在作祟。</p>
 <blockquote>
-<style border-left="red">函数提升是把整个函数都提到前面去。
-在我们写js code 的时候，我们有2中写法，一种是函数表达式，另外一种是函数声明方式。我们需要重点注意的是，只有函数声明形式才能被提升。</style>
-
+<p>函数提升是把整个函数都提到前面去。<br>在我们写js code 的时候，我们有2中写法，一种是函数表达式，另外一种是函数声明方式。我们需要重点注意的是，只有函数声明形式才能被提升。</p>
 </blockquote>
 <p>看下面的代码演示：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 函数声明方式提升【成功】</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    foo();</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我来自 foo"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">myTest(); <span class="comment">// 我来自 foo</span></div></pre></td></tr></table></figure>
