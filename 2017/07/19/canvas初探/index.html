@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/19/canvas初探/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="大概从放假开始就想先学一下canvas了，了解了才发现原来canvas水很深，知识点涉及的太多了。感觉自己发现了一片新大陆Σ(っ°Д°;)っ 那就先从最基本的开始吧。 1.基本介绍及用法canvas元素&amp;lt;canvas&amp;gt;是 HTML5 新增的元素，可用于通过使用JavaScript中的脚本来绘制图形。例如，它可以用于绘制图形，制作照片，创建动画，甚至可以进行实时视频处理或渲染 &amp;lt;c">
-<meta property="og:updated_time" content="2017-07-19T12:02:53.653Z">
+<meta property="og:updated_time" content="2017-07-19T12:06:13.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas初探">
 <meta name="twitter:description" content="大概从放假开始就想先学一下canvas了，了解了才发现原来canvas水很深，知识点涉及的太多了。感觉自己发现了一片新大陆Σ(っ°Д°;)っ 那就先从最基本的开始吧。 1.基本介绍及用法canvas元素&amp;lt;canvas&amp;gt;是 HTML5 新增的元素，可用于通过使用JavaScript中的脚本来绘制图形。例如，它可以用于绘制图形，制作照片，创建动画，甚至可以进行实时视频处理或渲染 &amp;lt;c">
@@ -409,9 +409,9 @@
 <li>获得一个指向HTMLImageElement的对象或者另一个canvas元素的引用作为源，也可以通过提供一个URL的方式来使用图片</li>
 <li>使用drawImage()函数将图片绘制到画布上</li>
 </ol>
-<p>下面来看看获取图片的函数<br>HTMLImageElement<br>这些图片是由Image()函数构造出来的，或者任何的<img>元素</p>
-<p>HTMLVideoElement<br>用一个HTML的 <video>元素作为你的图片源，可以从视频中抓取当前帧作为一个图像</video></p>
-<p>HTMLCanvasElement<br>可以使用另一个 <canvas> 元素作为你的图片源。</canvas></p>
+<p>下面来看看获取图片的函数<br>HTMLImageElement<br>这些图片是由Image()函数构造出来的，或者任何的img元素</p>
+<p>HTMLVideoElement<br>用一个HTML的video元素作为你的图片源，可以从视频中抓取当前帧作为一个图像</p>
+<p>HTMLCanvasElement<br>可以使用另一个canvas元素作为你的图片源。</p>
 <p>下面我们开始创建图像可以用脚本创建一个新的 HTMLImageElement 对象。要实现这个方法，我们可以使用很方便的Image()构造函数。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();   <span class="comment">// 创建一个&lt;img&gt;元素</span></div><div class="line">img.src = <span class="string">'myImage.png'</span>; <span class="comment">// 设置图片源地址</span></div></pre></td></tr></table></figure>
 <p>当脚本执行后，图片开始装载。</p>
