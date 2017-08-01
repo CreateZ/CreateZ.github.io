@@ -105,7 +105,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/01/前端响应式设计/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 viewport在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; con">
-<meta property="og:updated_time" content="2017-08-01T15:34:34.345Z">
+<meta property="og:updated_time" content="2017-08-01T15:50:07.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端响应式设计">
 <meta name="twitter:description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 viewport在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; con">
@@ -376,7 +376,17 @@
 <h5 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h5><p>background-size：cover：图片会覆盖整个容器，但是可能会造成背景图片被裁切，适用于背景图片不重要时。<br>background-size：contain：容器完整显示出背景图片，不会造成背景图片被裁切，适用于背景图片比较重要时。</p>
 <h5 id="保持高宽比"><a href="#保持高宽比" class="headerlink" title="保持高宽比"></a>保持高宽比</h5><p>小技巧：高宽固定1:2的容器：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">padding-top</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">background</span>: deepskyblue;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>在此容器中加上max-width为100%的图片后，图片就可以保持固定的比例，非常方便。</p>
-<h4 id="自适应布局"><a href="#自适应布局" class="headerlink" title="自适应布局"></a>自适应布局</h4>
+<h4 id="自适应布局"><a href="#自适应布局" class="headerlink" title="自适应布局"></a>自适应布局</h4><ul>
+<li>绝对定位</li>
+<li>table布局</li>
+<li>float与BFC</li>
+<li>flex布局</li>
+</ul>
+<p>以上涉及的内容比较多我会单独写几篇文章详细介绍</p>
+<h4 id="media-query"><a href="#media-query" class="headerlink" title="media query"></a>media query</h4><p>针对不同的屏幕，应用不同的样式</p>
+<p>通过在link标签中指定media query<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"index.css"</span> <span class="attr">media</span>=<span class="string">"screen and (max-width: 480px)"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在单个的css文件中写<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width: 480px) &#123;</div><div class="line">	.selector &#123;...&#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -588,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#viewport"><span class="nav-number">1.</span> <span class="nav-text">viewport</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式的图片"><span class="nav-number">2.</span> <span class="nav-text">响应式的图片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#max-width：100"><span class="nav-number">2.1.</span> <span class="nav-text">max-width：100%</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#背景图片"><span class="nav-number">2.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#保持高宽比"><span class="nav-number">2.3.</span> <span class="nav-text">保持高宽比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自适应布局"><span class="nav-number">3.</span> <span class="nav-text">自适应布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#viewport"><span class="nav-number">1.</span> <span class="nav-text">viewport</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式的图片"><span class="nav-number">2.</span> <span class="nav-text">响应式的图片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#max-width：100"><span class="nav-number">2.1.</span> <span class="nav-text">max-width：100%</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#背景图片"><span class="nav-number">2.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#保持高宽比"><span class="nav-number">2.3.</span> <span class="nav-text">保持高宽比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自适应布局"><span class="nav-number">3.</span> <span class="nav-text">自适应布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#media-query"><span class="nav-number">4.</span> <span class="nav-text">media query</span></a></li></ol></div>
             
 
           </div>
