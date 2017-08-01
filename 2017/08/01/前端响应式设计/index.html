@@ -99,16 +99,16 @@
 
 
 
-<meta name="description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; content=&quot;wi">
+<meta name="description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 viewport在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; con">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端响应式设计">
 <meta property="og:url" content="http://yoursite.com/2017/08/01/前端响应式设计/index.html">
 <meta property="og:site_name" content="CreateZ">
-<meta property="og:description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; content=&quot;wi">
-<meta property="og:updated_time" content="2017-08-01T08:12:28.641Z">
+<meta property="og:description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 viewport在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; con">
+<meta property="og:updated_time" content="2017-08-01T08:45:47.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端响应式设计">
-<meta name="twitter:description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; content=&quot;wi">
+<meta name="twitter:description" content="响应式页面设计（Responsive Web Design）简单来说就是同一个页面可以适应不同屏幕大小设备的设计方案 viewport在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。1&amp;lt;meta name=&quot;viewport&quot; con">
 
 
 
@@ -368,10 +368,14 @@
 
       
         <p>响应式页面设计（Responsive Web Design）简单来说就是<strong>同一个页面可以适应不同屏幕大小设备的设计方案</strong></p>
-<p>在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h4><p>在手机上做页面比较重要的就是设置viewport ，通俗的讲，移动设备上的viewport就是设备的屏幕上能用来显示我们的网页的那一块区域，如果不设置viewport浏览器就会默认渲染为980像素的pc页面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>很多人常常使用initial-scale=1到非响应式网站上，这会让网站以100%宽度渲染而不会自动缩放，用户需要手动移动页面或者缩放。最差的是和initial-scale=1同时使用user-scalable=no或maximum-scale=1，这将使你的网站不能被缩放——用户不能放大/缩小网页来看到全部的内容。所以，请记住：如果你的网站不是响应式的，请不要使用initial-scale或者禁用缩放。</p>
 </blockquote>
+<h4 id="响应式的图片"><a href="#响应式的图片" class="headerlink" title="响应式的图片"></a>响应式的图片</h4><h5 id="max-width：100"><a href="#max-width：100" class="headerlink" title="max-width：100%"></a>max-width：100%</h5><p>当给图片设置max-width:100%时，大图就会随容器自动缩放，保持高宽比。 当容器比较大时图片会按照原本尺寸显示，容器比较小时就会填满容器不会出现滚动条</p>
+<h5 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h5><p>background-size：cover：图片会覆盖整个容器，但是可能会造成背景图片被裁切，适用于背景图片不重要时。<br>background-size：contain：容器完整显示出背景图片，不会造成背景图片被裁切，适用于背景图片比较重要时。</p>
+<h5 id="保持高宽比"><a href="#保持高宽比" class="headerlink" title="保持高宽比"></a>保持高宽比</h5><p>小技巧：高宽固定1:2的容器：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">            <span class="attr">height</span>: <span class="number">0</span>;</div><div class="line">            padding-top: <span class="number">50</span>%;</div><div class="line">            background: deepskyblue;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
+<p>在此容器中加上max-width为100%的图片后，图片就可以保持固定的比例，非常方便。</p>
 
       
     </div>
@@ -464,8 +468,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -565,6 +578,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#viewport"><span class="nav-number">1.</span> <span class="nav-text">viewport</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式的图片"><span class="nav-number">2.</span> <span class="nav-text">响应式的图片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#max-width：100"><span class="nav-number">2.1.</span> <span class="nav-text">max-width：100%</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#背景图片"><span class="nav-number">2.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#保持高宽比"><span class="nav-number">2.3.</span> <span class="nav-text">保持高宽比</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
