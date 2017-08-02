@@ -105,7 +105,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/02/前端性能优化/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="1.减少http请求在浏览器(客户端)和服务器发生通信时，就已经消耗了大量的时间，尤其是在网络情况比较糟糕的时候，这个问题尤其的突出。 当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。 我们应当使用雪碧图（css sprites）合并图片，合并CSS和JS文件；图片较">
-<meta property="og:updated_time" content="2017-08-02T06:31:13.422Z">
+<meta property="og:updated_time" content="2017-08-02T06:39:47.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端性能优化">
 <meta name="twitter:description" content="1.减少http请求在浏览器(客户端)和服务器发生通信时，就已经消耗了大量的时间，尤其是在网络情况比较糟糕的时候，这个问题尤其的突出。 当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。 我们应当使用雪碧图（css sprites）合并图片，合并CSS和JS文件；图片较">
@@ -392,69 +392,24 @@
 <p>Reflow(重排)就是DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因</p>
 <p>触发重排的属性有：<br>盒模型相关的属性</p>
 <ul>
-<li><ul>
 <li>width</li>
-</ul>
-</li>
-<li><ul>
 <li>height</li>
-</ul>
-</li>
-<li><ul>
 <li>padding</li>
-</ul>
-</li>
-<li><ul>
 <li>margin</li>
-</ul>
-</li>
-<li><ul>
 <li>display</li>
-</ul>
-</li>
-<li><ul>
 <li>border-width</li>
-</ul>
-</li>
-<li><ul>
 <li>border</li>
-</ul>
-</li>
-<li><ul>
 <li>min-height</li>
-</ul>
-</li>
 </ul>
 <p>定位及浮动属性</p>
 <ul>
-<li><ul>
 <li>top</li>
-</ul>
-</li>
-<li><ul>
 <li>bottom</li>
-</ul>
-</li>
-<li><ul>
 <li>left</li>
-</ul>
-</li>
-<li><ul>
 <li>right</li>
-</ul>
-</li>
-<li><ul>
 <li>position</li>
-</ul>
-</li>
-<li><ul>
 <li>float</li>
-</ul>
-</li>
-<li><ul>
 <li>clear</li>
-</ul>
-</li>
 </ul>
 <p>改变节点内部的文字结构也会触发重排</p>
 <ul>
@@ -469,7 +424,15 @@
 <li>font-size</li>
 </ul>
 <p>因为reflow有时确实不可避免，尽量限制reflow的影响范围</p>
-<h3 id="3-减少对dom的操作"><a href="#3-减少对dom的操作" class="headerlink" title="3.减少对dom的操作"></a>3.减少对dom的操作</h3>
+<h3 id="3-减少对dom的操作"><a href="#3-减少对dom的操作" class="headerlink" title="3.减少对dom的操作"></a>3.减少对dom的操作</h3><p>对DOM操作的代价是高昂的，这在网页应用中的通常是一个性能瓶颈。修改和访问DOM元素会造成页面的Repaint和Reflow，循环对DOM操作更是罪恶的行为。所以请合理的使用JavaScript变量储存内容，考虑大量DOM元素中循环的性能开销，在循环结束时一次性写入。</p>
+<p>减少对dom元素的查询和修改，查询时可将其赋值给局部变量</p>
+<h3 id="4-使用CDN加速（内容分发网络）"><a href="#4-使用CDN加速（内容分发网络）" class="headerlink" title="4.使用CDN加速（内容分发网络）"></a>4.使用CDN加速（内容分发网络）</h3><blockquote>
+<p>其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。</p>
+</blockquote>
+<p>实时性不太好是CDN的致命缺陷。随着对CDN需求的逐渐升温，这一缺陷将得到改进，使来自于远程服务器的网络内容网页与复本服务器或缓存器中的网页保持同步。解决方法是在网络内容发生变化时将新的网络内容从服务器端直接传送到缓存器，或者当对网络内容的访问增加时将数据源服务器的网络内容尽可能实时地复制到缓存服务器。 </p>
+<h3 id="5-注意控制cookie的大小和污染"><a href="#5-注意控制cookie的大小和污染" class="headerlink" title="5.注意控制cookie的大小和污染"></a>5.注意控制cookie的大小和污染</h3><p>因为Cookie是本地的磁盘文件，每次浏览器都会去读取相应的Cookie，所以建议去除不必要的Coockie，使Coockie体积尽量小以减少对用户响应的影响；</p>
+<p>Cookie是有生命周期的，所以请注意设置合理的过期时间，合理地Expire时间和不要过早去清除coockie，都会改善用户的响应时间。</p>
+
       
     </div>
 
@@ -681,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-减少http请求"><span class="nav-number">1.</span> <span class="nav-text">1.减少http请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-重绘和重排"><span class="nav-number">2.</span> <span class="nav-text">2.重绘和重排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-减少对dom的操作"><span class="nav-number">3.</span> <span class="nav-text">3.减少对dom的操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-减少http请求"><span class="nav-number">1.</span> <span class="nav-text">1.减少http请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-重绘和重排"><span class="nav-number">2.</span> <span class="nav-text">2.重绘和重排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-减少对dom的操作"><span class="nav-number">3.</span> <span class="nav-text">3.减少对dom的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用CDN加速（内容分发网络）"><span class="nav-number">4.</span> <span class="nav-text">4.使用CDN加速（内容分发网络）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-注意控制cookie的大小和污染"><span class="nav-number">5.</span> <span class="nav-text">5.注意控制cookie的大小和污染</span></a></li></ol></div>
             
 
           </div>
