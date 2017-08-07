@@ -99,17 +99,17 @@
 
 
 
-<meta name="description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]">
+<meta name="description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Array实例方法汇总">
 <meta property="og:url" content="http://yoursite.com/2017/08/05/Array实例方法汇总/index.html">
 <meta property="og:site_name" content="CreateZ">
-<meta property="og:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]">
-<meta property="og:updated_time" content="2017-08-07T15:30:17.931Z">
+<meta property="og:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
+<meta property="og:updated_time" content="2017-08-07T15:31:24.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array实例方法汇总">
-<meta name="twitter:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]">
+<meta name="twitter:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
 
 
 
@@ -371,6 +371,8 @@
         <p>整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。</p>
 <h3 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a><strong>valueOf()</strong></h3><p>valueOf()返回数组本身</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>]</div><div class="line">arr.valueOf();  <span class="comment">// (3) ["1", "2", "3"]</span></div></pre></td></tr></table></figure>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a><strong>toString()</strong></h3><p>toString()返回数组的字符串形式,<strong>注意，该方法不改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>]</div><div class="line">arr.toString(); <span class="comment">// 1,2,3</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -588,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#valueOf-NaN"><span class="nav-number">1.</span> <span class="nav-text">valueOf()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#valueOf-NaN"><span class="nav-number">1.</span> <span class="nav-text">valueOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toString-NaN"><span class="nav-number">2.</span> <span class="nav-text">toString()</span></a></li></ol></div>
             
 
           </div>
