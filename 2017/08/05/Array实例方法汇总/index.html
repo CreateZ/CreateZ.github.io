@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/05/Array实例方法汇总/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
-<meta property="og:updated_time" content="2017-08-07T15:47:47.352Z">
+<meta property="og:updated_time" content="2017-08-08T14:55:25.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array实例方法汇总">
 <meta name="twitter:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
@@ -391,6 +391,20 @@
 <p>上面代码使用push方法，先后往数组中添加了2个成员。</p>
 <p>如果需要合并两个数组，可以这样写</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">Array</span>.prototype.push.apply(a, b) <span class="comment">// 返回：6， a: [1,2,3,4,5,6]</span></div><div class="line"><span class="comment">// 或者</span></div><div class="line">a.push.apply(a, b)  <span class="comment">// 返回：6， a: [1,2,3,4,5,6]</span></div><div class="line"><span class="comment">// 或者使用</span></div><div class="line">a.concat(b) <span class="comment">// 注意concat直接返回合并之后的数组，不改变原有数组</span></div><div class="line"><span class="comment">// 上面两种写法等同于</span></div><div class="line">a.push(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</div><div class="line">a <span class="comment">// [1, 2, 3, 4, 5, 6]</span></div></pre></td></tr></table></figure>
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a><strong>pop()</strong></h3><p>pop方法用于删除数组的最后一个元素，并返回该元素。<strong>注意，该方法会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>];</div><div class="line">a.pop() <span class="comment">// '3'</span></div><div class="line">a <span class="comment">// ['1', '2']</span></div></pre></td></tr></table></figure>
+<p>对空数组使用pop方法，不会报错，而是返回undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[].pop() <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>push和pop结合使用，就构成了“后进先出”的栈结构（stack）</p>
+</blockquote>
+<h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a><strong>shift()</strong></h3><p>shift方法用于删除数组的第一个元素，并返回该元素。<strong>注意，该方法会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line">arr.shift() <span class="comment">// 返回删除的数组：1</span></div><div class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [2,3]</span></div><div class="line"><span class="keyword">var</span> list = []</div><div class="line">list.shift() <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<p>对空数组使用shift方法，不会报错，而是返回undefined</p>
+<p>shift方法可以清空一个数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</div><div class="line"><span class="keyword">var</span> item;</div><div class="line"><span class="keyword">while</span> (item = arr.shift()) &#123;</div><div class="line">  <span class="built_in">console</span>.log(item);</div><div class="line">&#125;</div><div class="line">arr <span class="comment">// []</span></div></pre></td></tr></table></figure>
+<p>push 和 shift结合使用，就构成了“先进先出”的队列结构（queue）。</p>
+
       
     </div>
 
@@ -608,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#valueOf-NaN"><span class="nav-number">1.</span> <span class="nav-text">valueOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toString-NaN"><span class="nav-number">2.</span> <span class="nav-text">toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join"><span class="nav-number">3.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">4.</span> <span class="nav-text">concat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push"><span class="nav-number">5.</span> <span class="nav-text">push()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#valueOf-NaN"><span class="nav-number">1.</span> <span class="nav-text">valueOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toString-NaN"><span class="nav-number">2.</span> <span class="nav-text">toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join"><span class="nav-number">3.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">4.</span> <span class="nav-text">concat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push"><span class="nav-number">5.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop"><span class="nav-number">6.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shift"><span class="nav-number">7.</span> <span class="nav-text">shift()</span></a></li></ol></div>
             
 
           </div>
