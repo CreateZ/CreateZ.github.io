@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/05/Array实例方法汇总/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
-<meta property="og:updated_time" content="2017-08-08T15:00:25.566Z">
+<meta property="og:updated_time" content="2017-08-08T15:02:53.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array实例方法汇总">
 <meta name="twitter:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
@@ -418,7 +418,14 @@
 <p>splice的第一个参数是删除的起始位置(包含此删除位置)，第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</div><div class="line">a.splice(<span class="number">4</span>, <span class="number">2</span>) <span class="comment">// ["e", "f"]</span></div><div class="line">a <span class="comment">// ["a", "b", "c", "d"]</span></div></pre></td></tr></table></figure>
 <p>上面代码从原数组4号位置，删除了两个数组成员</p>
-
+<p>起始位置如果是负数(负几就是倒数第几)，就表示从倒数位置开始删除</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</div><div class="line">a.splice(<span class="number">-4</span>,<span class="number">2</span>) <span class="comment">// ['c', 'd']</span></div><div class="line">a <span class="comment">// ['a','b','e','f']</span></div></pre></td></tr></table></figure>
+<p>上面代码表示，从倒数第四个位置c开始删除两个成员</p>
+<p>如果只是单纯地插入元素，splice方法的第二个参数可以设为0</p>
+<p>第一个参数就是要插入的索引位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>];</div><div class="line">a.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>) <span class="comment">// []</span></div><div class="line">a <span class="comment">// [1, 2, 1, 1] // 插入到索引1的位置</span></div><div class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line">a.splice(a.length,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment">// []</span></div><div class="line">a <span class="comment">// ["a", "b", "c", 2, 3, 4, 5]</span></div><div class="line">相当于</div><div class="line">a.push(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line">a <span class="comment">// ["a", "b", "c", 2, 3, 4, 5]</span></div></pre></td></tr></table></figure>
+<p>如果只提供第一个参数，等同于将原数组在指定位置拆分成两个数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line">a.splice(<span class="number">2</span>) <span class="comment">// [3, 4]</span></div><div class="line">a <span class="comment">// [1, 2]</span></div></pre></td></tr></table></figure>
       
     </div>
 
