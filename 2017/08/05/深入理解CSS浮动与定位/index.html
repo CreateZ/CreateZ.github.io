@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CSS HTML," />
 
 
 
@@ -99,16 +99,17 @@
 
 
 
-<meta name="description" content="只有亲自动手实现一遍，才是我掌握了">
+<meta name="description" content="定位模式（Positioning schemes）  常规流（Normal Flow） 浮动（Float） 绝对定位（Absolute Positioning）  常规流  除了根元素、浮动元素和绝对定位元素外，其他元素都在常规流之内（in-flow） 而根元素、浮动和绝对定位的元素会脱离常规流（out of flow） 常规流中的盒子，属于块级格式化上下文或行级格式化上下文  什么是块级格式化上">
+<meta name="keywords" content="CSS HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解CSS浮动与定位">
 <meta property="og:url" content="http://yoursite.com/2017/08/05/深入理解CSS浮动与定位/index.html">
 <meta property="og:site_name" content="CreateZ">
-<meta property="og:description" content="只有亲自动手实现一遍，才是我掌握了">
-<meta property="og:updated_time" content="2017-08-05T15:21:45.877Z">
+<meta property="og:description" content="定位模式（Positioning schemes）  常规流（Normal Flow） 浮动（Float） 绝对定位（Absolute Positioning）  常规流  除了根元素、浮动元素和绝对定位元素外，其他元素都在常规流之内（in-flow） 而根元素、浮动和绝对定位的元素会脱离常规流（out of flow） 常规流中的盒子，属于块级格式化上下文或行级格式化上下文  什么是块级格式化上">
+<meta property="og:updated_time" content="2017-08-09T03:02:20.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解CSS浮动与定位">
-<meta name="twitter:description" content="只有亲自动手实现一遍，才是我掌握了">
+<meta name="twitter:description" content="定位模式（Positioning schemes）  常规流（Normal Flow） 浮动（Float） 绝对定位（Absolute Positioning）  常规流  除了根元素、浮动元素和绝对定位元素外，其他元素都在常规流之内（in-flow） 而根元素、浮动和绝对定位的元素会脱离常规流（out of flow） 常规流中的盒子，属于块级格式化上下文或行级格式化上下文  什么是块级格式化上">
 
 
 
@@ -321,6 +322,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -345,7 +368,47 @@
       
 
       
-        
+        <p>定位模式（Positioning schemes）</p>
+<ul>
+<li>常规流（Normal Flow）</li>
+<li>浮动（Float）</li>
+<li>绝对定位（Absolute Positioning）</li>
+</ul>
+<p>常规流</p>
+<ul>
+<li>除了根元素、浮动元素和绝对定位元素外，其他元素都在常规流之内（in-flow）</li>
+<li>而根元素、浮动和绝对定位的元素会脱离常规流（out of flow）</li>
+<li>常规流中的盒子，属于块级格式化上下文或行级格式化上下文</li>
+</ul>
+<p>什么是块级格式化上下文呢（Block Formatting Context）？</p>
+<ul>
+<li>盒子在容器（包含块）内从上到下一个接一个地放置</li>
+<li>两个兄弟盒子之间的竖直距离由margin属性决定</li>
+<li>同一个BFC内垂直margin会合并</li>
+<li>盒子的左外边缘挨着容器（包含块）的左边</li>
+</ul>
+<p>对应的是行级格式化上下文</p>
+<ul>
+<li>盒子一个接一个水平放置</li>
+<li>盒子之间的水平margin，border和padding都有效</li>
+<li>同一行的盒子所在的矩形区域叫行盒</li>
+<li>当一个行盒放不下上下文内所有盒子时，会被分到垂直堆叠的行盒里</li>
+<li>行盒内的水平分布由“text-align”属性决定</li>
+<li>如果一个行级块无法分割（单词、inline-block），该元素会被作为一个整体决定分布在哪一个行盒</li>
+</ul>
+<p>浮动（float）</p>
+<ul>
+<li>浮动元素会从常规流中脱离，被漂浮在容器（包含块）左边或右边</li>
+<li>浮动盒会一直飘到其外边缘挨到容器边缘或另外的浮动盒</li>
+<li>浮动元素不会影响其后面的流内的块级盒子</li>
+<li>但是浮动元素后面的行级盒子会变短以避开浮动元素</li>
+</ul>
+<p>clear(浮动元素会对后面的元素产生影响，我们要避开它)</p>
+<ul>
+<li>指定元素哪一边不能与之前的浮动框相邻</li>
+<li>取值：left | right | both</li>
+</ul>
+
       
     </div>
 
@@ -371,6 +434,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS-HTML/" rel="tag"># CSS HTML</a>
+          
+        </div>
       
 
       
@@ -479,7 +548,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
