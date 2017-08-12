@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/05/Array实例方法汇总/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
-<meta property="og:updated_time" content="2017-08-12T02:15:13.559Z">
+<meta property="og:updated_time" content="2017-08-12T03:11:23.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array实例方法汇总">
 <meta name="twitter:description" content="整理一下js中处理数组的方法，方便以后查找和记忆。尤其是要区分开是否改变原数组。 valueOf()valueOf()返回数组本身 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]arr.valueOf();  // (3) [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] toString()toString()返回数组的字符串形式,注意，该方法不改变原数组 12var arr = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]a">
@@ -430,6 +430,33 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>].sort()</div><div class="line"><span class="comment">// ['a', 'b', 'c', 'd']</span></div><div class="line">[<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].sort()</div><div class="line"><span class="comment">// [1, 2, 3, 4]</span></div><div class="line">[<span class="number">11</span>, <span class="number">101</span>].sort()</div><div class="line"><span class="comment">// [101, 11]</span></div><div class="line">[<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>].sort()</div><div class="line"><span class="comment">// [10111, 1101, 111]</span></div></pre></td></tr></table></figure>
 <p>上面代码的最后两个例子，需要特殊注意。sort方法不是按照大小排序，而是按照对应字符串的字典顺序排序。也就是说，数值会被先转成字符串，再按照字典顺序进行比较，所以101排在11的前面。</p>
 <p>如果想让sort方法按照自定义方式排序，可以传入一个函数作为参数，表示按照自定义方法进行排序。该函数本身又接受两个参数，表示进行比较的两个元素。如果返回值大于0，表示第一个元素排在第二个元素后面；其他情况下，都是第一个元素排在第二个元素前面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>].sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a - b;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// [111, 1101, 10111]</span></div><div class="line">[</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"张三"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"李四"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"王五"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125;</div><div class="line">].sort(<span class="function"><span class="keyword">function</span> (<span class="params">o1, o2</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> o1.age - o2.age;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// [</span></div><div class="line"><span class="comment">//   &#123; name: "李四", age: 24 &#125;,</span></div><div class="line"><span class="comment">//   &#123; name: "王五", age: 28  &#125;,</span></div><div class="line"><span class="comment">//   &#123; name: "张三", age: 30 &#125;</span></div><div class="line"><span class="comment">// ]</span></div></pre></td></tr></table></figure></p>
+<p>总结：<br>改变的原数组的几个方法，除此之外都不是：</p>
+<ul>
+<li>push()</li>
+<li>pop()</li>
+<li>shift()</li>
+<li>unshift()</li>
+<li>reverse()</li>
+<li>splice()</li>
+<li>sort()</li>
+</ul>
+<p>不改变原数组：</p>
+<ul>
+<li>join()</li>
+<li>toString()</li>
+<li>concat()</li>
+<li>slice()</li>
+<li>map()</li>
+<li>forEach()</li>
+<li>filter()</li>
+<li>some()</li>
+<li>every()</li>
+<li>reduce()</li>
+<li>reduceRight()</li>
+<li>indexOf()</li>
+<li>lastIndexOf()</li>
+<li>from()</li>
+</ul>
 
       
     </div>
