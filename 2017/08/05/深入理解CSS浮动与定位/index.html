@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/05/深入理解CSS浮动与定位/index.html">
 <meta property="og:site_name" content="CreateZ">
 <meta property="og:description" content="此博客偏重理论，需要结合实际编码进行练习。 定位模式（Positioning schemes）  常规流（Normal Flow） 浮动（Float） 绝对定位（Absolute Positioning）  常规流  除了根元素、浮动元素和绝对定位元素外，其他元素都在常规流之内（in-flow） 而根元素、浮动和绝对定位的元素会脱离常规流（out of flow） 常规流中的盒子，属于块级格式化上">
-<meta property="og:updated_time" content="2017-08-10T11:28:29.480Z">
+<meta property="og:updated_time" content="2017-08-10T13:15:54.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解CSS浮动与定位">
 <meta name="twitter:description" content="此博客偏重理论，需要结合实际编码进行练习。 定位模式（Positioning schemes）  常规流（Normal Flow） 浮动（Float） 绝对定位（Absolute Positioning）  常规流  除了根元素、浮动元素和绝对定位元素外，其他元素都在常规流之内（in-flow） 而根元素、浮动和绝对定位的元素会脱离常规流（out of flow） 常规流中的盒子，属于块级格式化上">
@@ -429,6 +429,27 @@
 <li>清除浮动</li>
 <li>防止margin折叠</li>
 <li>灵活的双栏布局</li>
+</ul>
+<p>position</p>
+<ul>
+<li>static，非定位，默认值</li>
+<li>relative，相对定位（相对自己，仍然在常规流中）</li>
+<li>absolute，绝对定位，相对非static祖先元素定位</li>
+<li>fixed，相对于视口绝对定位</li>
+</ul>
+<p>relative</p>
+<ul>
+<li>在常规流里面布局</li>
+<li>相对于自己本应该在的位置进行偏移</li>
+<li>使用top、left、bottom、right设置偏移长度</li>
+<li>流内其他元素当它没有偏移一样布局</li>
+</ul>
+<p>absolute</p>
+<ul>
+<li>脱离正常流</li>
+<li>相对于最近的非static祖先的padding box定位</li>
+<li>不会对流内元素布局造成影响</li>
+<li>可以有margin，但不会折叠 </li>
 </ul>
 
       
